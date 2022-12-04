@@ -1,14 +1,14 @@
 package Entities;
 
 public class Comentarios {
-    private int id_comentario;
-    private int id_casa;
+    private Integer id_comentario;
+    private Integer id_casa;
     private String comentario;
 
     public Comentarios() {
     }
 
-    public int getId_comentario() {
+    public Integer getId_comentario() {
         return id_comentario;
     }
 
@@ -16,7 +16,7 @@ public class Comentarios {
         this.id_comentario = id_comentario;
     }
 
-    public int getId_casa() {
+    public Integer getId_casa() {
         return id_casa;
     }
 
