@@ -3,27 +3,27 @@ package Entities;
 import java.util.Date;
 
 public class Casas {
-    private int id_casa;
+    private Integer id_casa;
     private String calle;
-    private int numero;
+    private Integer numero;
     private String codigo_postal;
     private String ciudad;
     private String pais;
     private Date fecha_desde;
     private Date fecha_hasta;
-    private int tiempo_minimo;
-    private int tiempo_maximo;
-    private double precio_habitacion;
+    private Integer tiempo_minimo;
+    private Integer tiempo_maximo;
+    private Double precio_habitacion;
     private String tipo_vivienda;
 
     public Casas() {
     }
 
-    public int getId_casa() {
+    public Integer getId_casa() {
         return id_casa;
     }
 
-    public void setId_casa(int id_casa) {
+    public void setId_casa(Integer id_casa) {
         this.id_casa = id_casa;
     }
 
@@ -35,11 +35,11 @@ public class Casas {
         this.calle = calle;
     }
 
-    public int getNumero() {
+    public Integer getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(Integer numero) {
         this.numero = numero;
     }
 
@@ -83,23 +83,23 @@ public class Casas {
         this.fecha_hasta = fecha_hasta;
     }
 
-    public int getTiempo_minimo() {
+    public Integer getTiempo_minimo() {
         return tiempo_minimo;
     }
 
-    public void setTiempo_minimo(int tiempo_minimo) {
+    public void setTiempo_minimo(Integer tiempo_minimo) {
         this.tiempo_minimo = tiempo_minimo;
     }
 
-    public int getTiempo_maximo() {
+    public Integer getTiempo_maximo() {
         return tiempo_maximo;
     }
 
-    public void setTiempo_maximo(int tiempo_maximo) {
+    public void setTiempo_maximo(Integer tiempo_maximo) {
         this.tiempo_maximo = tiempo_maximo;
     }
 
-    public double getPrecio_habitacion() {
+    public Double getPrecio_habitacion() {
         return precio_habitacion;
     }
 
@@ -114,6 +114,4 @@ public class Casas {
     public void setTipo_vivienda(String tipo_vivienda) {
         this.tipo_vivienda = tipo_vivienda;
     }
-
-
 }

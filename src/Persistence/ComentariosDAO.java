@@ -14,8 +14,11 @@ public final class ComentariosDAO extends DAO {
             if (findNullValueInComments(comentario) == true){
                 throw new Exception("null value found");
             }
-            String sqlQuery = "INSERT INTO comentarios (id_casa,comentario) values (" +
-                    comentario.getId_casa()+ ", '"+comentario.getId_comentario()+"';" ;
+            String sqlQuery = "INSERT INTO comentarios (id_casa,comentario)"+
+                    " values ("+comentario.getId_casa()+ ", '"+
+                                comentario.getId_comentario()+"';" ;
+
+
             insertDeleteUpdate(sqlQuery);
         }catch (Exception e){
             e.getMessage();
@@ -31,7 +34,9 @@ public final class ComentariosDAO extends DAO {
                 throw new Exception("cannot edit comentario - comentario is null ");
             }
             String sqlQuery= "UPDATE comentarios SET id_casa =" + comentario.getId_casa() +
-                    ", comentario = '" + comentario.getComentario()+"' where id_comentario =" +
+                                                  ", comentario = '" + comentario.getComentario()+
+                             "' where id_comentario =" +
+
                     comentario.getId_comentario();
             insertDeleteUpdate(sqlQuery);
 
@@ -85,9 +90,9 @@ public final class ComentariosDAO extends DAO {
 
     }
 
-    public Collection<Comentarios> searchAllComentarios(int id) throws  Exception{
+    public Collection<Comentarios> searchAllComentarios() throws  Exception{
         try{
-            String sqlQuery = "SELECT * FROM comentarios where id_comentario =" + id+" ;";
+            String sqlQuery = "SELECT * FROM comentarios;";
             queryDataBase(sqlQuery);
             Comentarios comentario = null;
 
@@ -114,7 +119,7 @@ public final class ComentariosDAO extends DAO {
 
     }
 
-
+    //nested method
     public boolean findNullValueInComments(Comentarios comentarios) throws Exception, NullPointerException{
         boolean valueNull = false;
         if (comentarios == null){
