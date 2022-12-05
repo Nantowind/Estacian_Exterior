@@ -10,7 +10,7 @@ public final class CasasDAO extends DAO{
     public void saveCasa(Casas casa)throws Exception{
 
         try {
-            if (findNullValueInCasas(casa) == true ){
+            if (findNullValueInCasaForSave(casa) == true ){
                 throw new Exception("null value found");
             }
 
@@ -39,7 +39,7 @@ public final class CasasDAO extends DAO{
     public void editCasa(Casas casa)throws Exception{
 
         try {
-            if (casa == null){
+            if (findNullValueInCasaForEdit(casa)){
                 throw new Exception("cannot edit casa - casa is null ");
             }
             String sqlQuery = "UPDATE casas SET calle = '" + casa.getCalle() +
@@ -52,7 +52,7 @@ public final class CasasDAO extends DAO{
                                             "', tiempo_minimo = "+casa.getTiempo_minimo()+
                                             ", tiempo_maximo = "+casa.getTiempo_maximo()+
                                             ",tipo_vivienda = '"+casa.getTipo_vivienda()+
-                                 "', where id_casa = " +casa.getId_casa();
+                                 "' where id_casa = " +casa.getId_casa()+";";
             insertDeleteUpdate(sqlQuery);
         }catch (Exception e){
             e.getMessage();
@@ -76,7 +76,6 @@ public final class CasasDAO extends DAO{
             throw e;
         }
     }
-
     public Casas searchCasas(int id)throws Exception{
 
         try {
@@ -108,9 +107,6 @@ public final class CasasDAO extends DAO{
         }
 
     }
-
-
-
     public Collection<Casas> searchAllCasas(int id)throws Exception{
 
         try {
@@ -144,40 +140,38 @@ public final class CasasDAO extends DAO{
         }
 
     }
+
+
     //nested method
-    public boolean findNullValueInCasas(Casas casa) throws Exception, NullPointerException{
+    //These two methods differ only because the comparison of the id_casa value is different in each case.
+    public boolean findNullValueInCasaForSave(Casas casa) throws Exception, NullPointerException{
         boolean valueNull = false;
         if (casa == null){
             valueNull = true;
             System.out.println("casa 'object' cannot be null");
         }
 
-        if (casa.getId_casa() != null ){
-            valueNull = true;
-            System.out.println("id_casa 'value' must be null");
-        }
-
-        if (casa.getCalle() == null ){
+        if (casa.getCalle() == null  || casa.getCalle().trim().isEmpty()){
             valueNull = true;
             System.out.println("calle 'value' must be null");
         }
 
-        if (casa.getNumero() == null ){
+        if (casa.getNumero() == null || casa.getNumero() < 1){
             valueNull = true;
             System.out.println("numero 'value' must be null");
         }
 
-        if (casa.getCodigo_postal() == null ){
+        if (casa.getCodigo_postal() == null || casa.getCodigo_postal().trim().isEmpty()){
             valueNull = true;
             System.out.println("codigo_posta 'value' cannot be null");
         }
 
-        if (casa.getCiudad() == null ){
+        if (casa.getCiudad() == null || casa.getCiudad().trim().isEmpty() ){
             valueNull = true;
             System.out.println("ciudad 'value' cannot be null");
         }
 
-        if (casa.getPais() == null ){
+        if (casa.getPais() == null || casa.getPais().trim().isEmpty() ){
             valueNull = true;
             System.out.println("pais 'value' cannot be null");
         }
@@ -191,24 +185,101 @@ public final class CasasDAO extends DAO{
             System.out.println("fecha_hasta 'value' cannot be null");
         }
 
-        if (casa.getTiempo_minimo() == null ){
+        if (casa.getTiempo_minimo() == null || casa.getTiempo_minimo() < 1 ){
             valueNull = true;
             System.out.println("tiempo_minimo 'value' cannot be null");
         }
 
-        if (casa.getTiempo_maximo() == null ){
+        if (casa.getTiempo_maximo() == null || casa.getTiempo_maximo() < 1){
             valueNull = true;
             System.out.println("tiempo_maximo 'value' cannot be null");
         }
 
-        if (casa.getPrecio_habitacion() == null ){
+        if (casa.getPrecio_habitacion() == null || casa.getPrecio_habitacion() <1){
             valueNull = true;
             System.out.println("precio_habitacion 'value' cannot be null");
         }
 
-        if (casa.getTipo_vivienda() == null ){
+        if (casa.getTipo_vivienda() == null || casa.getTipo_vivienda().trim().isEmpty()){
             valueNull = true;
             System.out.println("tipo_vivienda 'value' cannot be null");
+        }
+
+        //Warning this is different
+        if (casa.getId_casa() != null ){
+            valueNull = true;
+            System.out.println("id_casa 'value' must be null");
+        }
+
+        return valueNull;
+
+
+    }
+    public boolean findNullValueInCasaForEdit(Casas casa) throws Exception, NullPointerException{
+        boolean valueNull = false;
+        if (casa == null){
+            valueNull = true;
+            System.out.println("casa 'object' cannot be null");
+        }
+
+        if (casa.getCalle() == null  || casa.getCalle().trim().isEmpty()){
+            valueNull = true;
+            System.out.println("calle 'value' must be null");
+        }
+
+        if (casa.getNumero() == null || casa.getNumero() < 1){
+            valueNull = true;
+            System.out.println("numero 'value' must be null");
+        }
+
+        if (casa.getCodigo_postal() == null || casa.getCodigo_postal().trim().isEmpty()){
+            valueNull = true;
+            System.out.println("codigo_posta 'value' cannot be null");
+        }
+
+        if (casa.getCiudad() == null || casa.getCiudad().trim().isEmpty() ){
+            valueNull = true;
+            System.out.println("ciudad 'value' cannot be null");
+        }
+
+        if (casa.getPais() == null || casa.getPais().trim().isEmpty() ){
+            valueNull = true;
+            System.out.println("pais 'value' cannot be null");
+        }
+        if (casa.getFecha_desde() == null ){
+            valueNull = true;
+            System.out.println("fecha_desde 'value' cannot be null");
+        }
+
+        if (casa.getFecha_hasta() == null ){
+            valueNull = true;
+            System.out.println("fecha_hasta 'value' cannot be null");
+        }
+
+        if (casa.getTiempo_minimo() == null || casa.getTiempo_minimo() < 1 ){
+            valueNull = true;
+            System.out.println("tiempo_minimo 'value' cannot be null");
+        }
+
+        if (casa.getTiempo_maximo() == null || casa.getTiempo_maximo() < 1){
+            valueNull = true;
+            System.out.println("tiempo_maximo 'value' cannot be null");
+        }
+
+        if (casa.getPrecio_habitacion() == null || casa.getPrecio_habitacion() <1){
+            valueNull = true;
+            System.out.println("precio_habitacion 'value' cannot be null");
+        }
+
+        if (casa.getTipo_vivienda() == null || casa.getTipo_vivienda().trim().isEmpty()){
+            valueNull = true;
+            System.out.println("tipo_vivienda 'value' cannot be null");
+        }
+
+        //Warning this is different
+        if (casa.getId_casa() == null || casa.getId_casa() < 1){
+            valueNull = true;
+            System.out.println("id_casa 'value' cannot be null");
         }
 
         return valueNull;

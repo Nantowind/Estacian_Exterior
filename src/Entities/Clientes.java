@@ -2,10 +2,10 @@ package Entities;
 
 public class Clientes {
 
-    private int id_cliente;
+    private Integer id_cliente;
     private String nombre;
     private String calle;
-    private int numero;
+    private Integer numero;
     private String codigo_postal;
     private String ciudad;
     private String pais;
@@ -30,7 +30,7 @@ public class Clientes {
         this.calle = calle;
     }
 
-    public int getNumero() {
+    public Integer getNumero() {
         return numero;
     }
 
@@ -70,7 +70,7 @@ public class Clientes {
         this.email = email;
     }
 
-    public int getId_cliente() {
+    public Integer getId_cliente() {
         return id_cliente;
     }
 

@@ -11,7 +11,7 @@ public final class ComentariosDAO extends DAO {
     public void saveComentario(Comentarios comentario) throws Exception{
 
         try {
-            if (findNullValueInComments(comentario) == true){
+            if (findNullValueInCommentsForSave(comentario) == true){
                 throw new Exception("null value found");
             }
             String sqlQuery = "INSERT INTO comentarios (id_casa,comentario)"+
@@ -30,14 +30,12 @@ public final class ComentariosDAO extends DAO {
     public void editComentario(Comentarios comentario) throws Exception{
 
         try {
-            if (comentario == null){
+            if (findNullValueInCommentsForEdit(comentario)){
                 throw new Exception("cannot edit comentario - comentario is null ");
             }
             String sqlQuery= "UPDATE comentarios SET id_casa =" + comentario.getId_casa() +
                                                   ", comentario = '" + comentario.getComentario()+
-                             "' where id_comentario =" +
-
-                    comentario.getId_comentario();
+                             "' where id_comentario =" + comentario.getId_comentario() + ";";
             insertDeleteUpdate(sqlQuery);
 
         }catch (Exception e){
@@ -120,22 +118,47 @@ public final class ComentariosDAO extends DAO {
     }
 
     //nested method
-    public boolean findNullValueInComments(Comentarios comentarios) throws Exception, NullPointerException{
+    //These two methods differ only because the comparison of the id_comentario value is different in each case.
+    public boolean findNullValueInCommentsForSave(Comentarios comentarios){
         boolean valueNull = false;
         if (comentarios == null){
             valueNull = true;
             System.out.println("Comentarios 'object' cannot be null");
         }
-        if (comentarios.getComentario() == null ){
+        if (comentarios.getComentario() == null || comentarios.getComentario().trim().isEmpty()){
             valueNull = true;
             System.out.println("comentario 'value' cannot be null");
         }
-        if (comentarios.getId_casa() == null){
+        if (comentarios.getId_casa() == null || comentarios.getId_casa() < 1) {
             valueNull = true;
             System.out.println("id_casa 'value' connor be null ");
         }
+        //Warning this is different
         if (comentarios.getId_comentario() != null){
             System.out.println("id_commentario comment must be null");
+        }
+        return valueNull;
+
+
+    }
+
+    public boolean findNullValueInCommentsForEdit(Comentarios comentarios){
+        boolean valueNull = false;
+        if (comentarios == null){
+            valueNull = true;
+            System.out.println("Comentarios 'object' cannot be null");
+        }
+        if (comentarios.getComentario() == null || comentarios.getComentario().trim().isEmpty()){
+            valueNull = true;
+            System.out.println("comentario 'value' cannot be null");
+        }
+        if (comentarios.getId_casa() == null || comentarios.getId_casa() < 1) {
+            valueNull = true;
+            System.out.println("id_casa 'value' connor be null ");
+        }
+        //Warning this is different
+        if (comentarios.getId_comentario() == null || comentarios.getId_comentario() <1){
+            System.out.println("id_commentario 'value' comment cannot be null");
         }
         return valueNull;
 
