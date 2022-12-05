@@ -1,17 +1,21 @@
 import Entities.Comentarios;
+import Estancia.UIMenu;
 import Persistence.ComentariosDAO;
+import Services.*;
+
+import java.util.Scanner;
 
 public class EstanciaExterior {
     public static void main(String[] args) {
-
-        ComentariosDAO comentariosDAO = new ComentariosDAO();
-        Comentarios comentarios = new Comentarios();
-        comentarios.setId_comentario(5);
+        UIMenu menu = new UIMenu();
         try {
-            System.out.println(comentariosDAO.findNullValueInComments(comentarios));
+            menu.Menu();
         }catch (Exception e){
-            System.out.println("erro ");
+            e.getMessage();
+            e.printStackTrace();
         }
+
+
 
     }
 }

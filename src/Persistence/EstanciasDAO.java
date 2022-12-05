@@ -65,7 +65,7 @@ public final class EstanciasDAO extends DAO {
     public Estancias searchEstancia(int id)throws Exception{
 
         try{
-            String sqlQuery = "SELECT * FROM estancia where id_estancia ="+id;
+            String sqlQuery = "SELECT * FROM estancias where id_estancia ="+id;
             queryDataBase(sqlQuery);
             Estancias estancia = null;
             while (resultSet.next()){
@@ -73,7 +73,7 @@ public final class EstanciasDAO extends DAO {
                 estancia.setId_estancia(resultSet.getInt("id_estancia"));
                 estancia.setId_cliente(resultSet.getInt("id_cliente"));
                 estancia.setId_casa(resultSet.getInt("id_casa"));
-                estancia.setNombre_huesped(resultSet.getString("mombre_huesped"));
+                estancia.setNombre_huesped(resultSet.getString("nombre_huesped"));
                 estancia.setFecha_desde(resultSet.getDate("fecha_desde"));
                 estancia.setFecha_hasta(resultSet.getDate("fecha_hasta"));
             }
@@ -81,6 +81,7 @@ public final class EstanciasDAO extends DAO {
             return estancia;
         }catch (Exception e){
             disconnectDataBase();
+            e.printStackTrace();
             System.out.println("no search estancia");
             throw e;
         }
@@ -89,7 +90,7 @@ public final class EstanciasDAO extends DAO {
     public Collection<Estancias> searchAllEstancia()throws Exception{
 
         try{
-            String sqlQuery = "SELECT * FROM estancia ";
+            String sqlQuery = "SELECT * FROM estancias ";
             queryDataBase(sqlQuery);
             Estancias estancia = null;
             Collection<Estancias> estancias = new ArrayList<>();
@@ -98,7 +99,7 @@ public final class EstanciasDAO extends DAO {
                 estancia.setId_estancia(resultSet.getInt("id_estancia"));
                 estancia.setId_cliente(resultSet.getInt("id_cliente"));
                 estancia.setId_casa(resultSet.getInt("id_casa"));
-                estancia.setNombre_huesped(resultSet.getString("mombre_huesped"));
+                estancia.setNombre_huesped(resultSet.getString("nombre_huesped"));
                 estancia.setFecha_desde(resultSet.getDate("fecha_desde"));
                 estancia.setFecha_hasta(resultSet.getDate("fecha_hasta"));
                 estancias.add(estancia);
@@ -107,15 +108,19 @@ public final class EstanciasDAO extends DAO {
             return estancias;
         }catch (Exception e){
             System.out.println("no search estancia");
+            e.printStackTrace();
             throw e;
         }
 
     }
 
 
+
+
+
     //nested method
     //These two methods differ only because the comparison of the id_estancia value is different in each case.
-    public boolean findNullValueInEstanciaForSave(Estancias estancia){
+    private boolean findNullValueInEstanciaForSave(Estancias estancia){
         boolean valueNull = false;
         if (estancia == null){
             valueNull = true;
@@ -156,7 +161,7 @@ public final class EstanciasDAO extends DAO {
 
     }
 
-    public boolean findNullValueInEstanciaForEdit(Estancias estancia){
+    private boolean findNullValueInEstanciaForEdit(Estancias estancia){
         boolean valueNull = false;
         if (estancia == null){
             valueNull = true;

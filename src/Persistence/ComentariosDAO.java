@@ -119,7 +119,7 @@ public final class ComentariosDAO extends DAO {
 
     //nested method
     //These two methods differ only because the comparison of the id_comentario value is different in each case.
-    public boolean findNullValueInCommentsForSave(Comentarios comentarios){
+    private boolean findNullValueInCommentsForSave(Comentarios comentarios){
         boolean valueNull = false;
         if (comentarios == null){
             valueNull = true;
@@ -142,7 +142,7 @@ public final class ComentariosDAO extends DAO {
 
     }
 
-    public boolean findNullValueInCommentsForEdit(Comentarios comentarios){
+    private boolean findNullValueInCommentsForEdit(Comentarios comentarios){
         boolean valueNull = false;
         if (comentarios == null){
             valueNull = true;

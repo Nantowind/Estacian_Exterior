@@ -11,17 +11,18 @@ public abstract class DAO {
 
     private final String USER = "root";
     private final String PASSWORD = "";
-    private final String DATABASE = "Estancias_Exterior";
+    private final String DATABASE = "estancias_exterior";
     private final String DRIVER = "com.mysql.cj.jdbc.Driver";
 
     protected void connectDataBase()throws ClassNotFoundException, SQLException {
         try{
             Class.forName(DRIVER);
-            String urlDataBase = "jdbc:mysql//localhost:3306/" + DATABASE;
+            String urlDataBase = "jdbc:mysql://localhost:3306/" + DATABASE;
             connection = DriverManager.getConnection(urlDataBase,USER,PASSWORD);
 
         }catch (ClassNotFoundException | SQLException e){
             System.out.println("I don't can connect" );
+            e.printStackTrace();
             throw e;
 
         }

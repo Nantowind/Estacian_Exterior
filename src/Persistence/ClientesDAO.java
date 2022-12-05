@@ -131,7 +131,7 @@ public final class ClientesDAO extends DAO{
     }
 
     //nested method
-    public boolean findNullValueInClienteForInsert(Clientes cliente){
+    private boolean findNullValueInClienteForInsert(Clientes cliente){
         boolean valueNull = false;
         if (cliente == null){
             valueNull = true;
@@ -196,7 +196,7 @@ public final class ClientesDAO extends DAO{
 
     }
 
-    public boolean findNullValueInClienteForEdit(Clientes cliente){
+    private boolean findNullValueInClienteForEdit(Clientes cliente){
         boolean valueNull = false;
         if (cliente == null){
             valueNull = true;

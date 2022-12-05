@@ -51,6 +51,7 @@ public final class CasasDAO extends DAO{
                                             "', fecha_hasta = '"+casa.getFecha_hasta() +
                                             "', tiempo_minimo = "+casa.getTiempo_minimo()+
                                             ", tiempo_maximo = "+casa.getTiempo_maximo()+
+                                            ",precio_habitacion= "+casa.getPrecio_habitacion()+
                                             ",tipo_vivienda = '"+casa.getTipo_vivienda()+
                                  "' where id_casa = " +casa.getId_casa()+";";
             insertDeleteUpdate(sqlQuery);
@@ -95,11 +96,12 @@ public final class CasasDAO extends DAO{
                 casa.setTiempo_minimo(resultSet.getInt("tiempo_minimo"));
                 casa.setTiempo_maximo(resultSet.getInt("tiempo_maximo"));
                 casa.setPrecio_habitacion(resultSet.getDouble("precio_habitacion"));
-                casa.setTipo_vivienda(resultSet.getString("tipo_habitacion"));
+                casa.setTipo_vivienda(resultSet.getString("tipo_vivienda"));
             }
             disconnectDataBase();
             return casa;
         }catch (Exception e){
+            System.out.println("Error casa");
             disconnectDataBase();
             e.getMessage();
             e.printStackTrace();
@@ -107,7 +109,7 @@ public final class CasasDAO extends DAO{
         }
 
     }
-    public Collection<Casas> searchAllCasas(int id)throws Exception{
+    public Collection<Casas> searchAllCasas()throws Exception{
 
         try {
             String sqlQuery = "SELECT * FROM casas ;";
@@ -127,12 +129,13 @@ public final class CasasDAO extends DAO{
                 casa.setTiempo_minimo(resultSet.getInt("tiempo_minimo"));
                 casa.setTiempo_maximo(resultSet.getInt("tiempo_maximo"));
                 casa.setPrecio_habitacion(resultSet.getDouble("precio_habitacion"));
-                casa.setTipo_vivienda(resultSet.getString("tipo_habitacion"));
+                casa.setTipo_vivienda(resultSet.getString("tipo_vivienda"));
                 casas.add(casa);
             }
             disconnectDataBase();
             return casas;
         }catch (Exception e){
+            System.out.println("Error casa");
             disconnectDataBase();
             e.getMessage();
             e.printStackTrace();
@@ -144,7 +147,7 @@ public final class CasasDAO extends DAO{
 
     //nested method
     //These two methods differ only because the comparison of the id_casa value is different in each case.
-    public boolean findNullValueInCasaForSave(Casas casa) throws Exception, NullPointerException{
+    private boolean findNullValueInCasaForSave(Casas casa) throws Exception, NullPointerException{
         boolean valueNull = false;
         if (casa == null){
             valueNull = true;
@@ -215,7 +218,7 @@ public final class CasasDAO extends DAO{
 
 
     }
-    public boolean findNullValueInCasaForEdit(Casas casa) throws Exception, NullPointerException{
+    private boolean findNullValueInCasaForEdit(Casas casa) throws Exception, NullPointerException{
         boolean valueNull = false;
         if (casa == null){
             valueNull = true;

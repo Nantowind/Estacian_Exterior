@@ -68,4 +68,18 @@ public class Familias {
     public void setId_casa_familia(int id_casa_familia) {
         this.id_casa_familia = id_casa_familia;
     }
+
+
+    @Override
+    public String toString() {
+        return "Familias{" +
+                "id_familia=" + id_familia +
+                ", nombre='" + nombre + '\'' +
+                ", edad_minima=" + edad_minima +
+                ", edad_maxima=" + edad_maxima +
+                ", num_hijos=" + num_hijos +
+                ", email='" + email + '\'' +
+                ", id_casa_familia=" + id_casa_familia +
+                '}';
+    }
 }

@@ -71,7 +71,7 @@ public final class FamialiasDAO extends DAO {
 
     public Collection<Familias> searchAllFamilias()throws Exception{
         try {
-            String sqlQuery= "SELECT * FROM famlias";
+            String sqlQuery= "SELECT * FROM familias";
             queryDataBase(sqlQuery);
             Familias familia = null;
             Collection<Familias> familias =new ArrayList<>();
@@ -83,7 +83,7 @@ public final class FamialiasDAO extends DAO {
                 familia.setEdad_maxima(resultSet.getInt("edad_maxima"));
                 familia.setNum_hijos(resultSet.getInt("num_hijos"));
                 familia.setEmail(resultSet.getString("email"));
-                familia.setId_casa_familia(resultSet.getInt("is_casa_familia"));
+                familia.setId_casa_familia(resultSet.getInt("id_casa_familia"));
                 familias.add(familia);
             }
 
@@ -91,6 +91,7 @@ public final class FamialiasDAO extends DAO {
             return familias;
         }catch (Exception e){
             disconnectDataBase();
+            e.printStackTrace();
             System.out.println("error search familia");
             throw e;
         }
@@ -127,7 +128,7 @@ public final class FamialiasDAO extends DAO {
     }
 
 
-    public boolean findNullValueInFamiliaForSave(Familias familia){
+    private boolean findNullValueInFamiliaForSave(Familias familia){
         boolean valueNull = false;
         if (familia == null){
             valueNull = true;
@@ -181,7 +182,7 @@ public final class FamialiasDAO extends DAO {
 
     }
 
-    public boolean findNullValueInFamiliaForEdit(Familias familia){
+    private boolean findNullValueInFamiliaForEdit(Familias familia){
         boolean valueNull = false;
         if (familia == null){
             valueNull = true;

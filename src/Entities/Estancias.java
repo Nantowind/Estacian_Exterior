@@ -61,4 +61,17 @@ public class Estancias {
     public void setFecha_hasta(Date fecha_hasta) {
         this.fecha_hasta = fecha_hasta;
     }
+
+
+    @Override
+    public String toString() {
+        return "Estancias{" +
+                "id_estancia=" + id_estancia +
+                ", id_cliente=" + id_cliente +
+                ", id_casa=" + id_casa +
+                ", nombre_huesped='" + nombre_huesped + '\'' +
+                ", fecha_desde=" + fecha_desde +
+                ", fecha_hasta=" + fecha_hasta +
+                '}';
+    }
 }

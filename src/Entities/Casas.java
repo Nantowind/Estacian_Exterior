@@ -114,4 +114,23 @@ public class Casas {
     public void setTipo_vivienda(String tipo_vivienda) {
         this.tipo_vivienda = tipo_vivienda;
     }
+
+
+    @Override
+    public String toString() {
+        return "Casas{" +
+                "id_casa=" + id_casa +
+                ", calle='" + calle + '\'' +
+                ", numero=" + numero +
+                ", codigo_postal='" + codigo_postal + '\'' +
+                ", ciudad='" + ciudad + '\'' +
+                ", pais='" + pais + '\'' +
+                ", fecha_desde=" + fecha_desde +
+                ", fecha_hasta=" + fecha_hasta +
+                ", tiempo_minimo=" + tiempo_minimo +
+                ", tiempo_maximo=" + tiempo_maximo +
+                ", precio_habitacion=" + precio_habitacion +
+                ", tipo_vivienda='" + tipo_vivienda + '\'' +
+                '}';
+    }
 }

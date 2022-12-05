@@ -77,4 +77,17 @@ public class Clientes {
     public void setId_cliente(int id_cliente) {
         this.id_cliente = id_cliente;
     }
+
+
+    @Override
+    public String toString() {
+        return " nombre='" + nombre + '\'' +
+                ", calle='" + calle + '\'' +
+                ", numero=" + numero +
+                ", codigo_postal='" + codigo_postal + '\'' +
+                ", ciudad='" + ciudad + '\'' +
+                ", pais='" + pais + '\'' +
+                ", email='" + email + '\'';
+    }
 }
+
