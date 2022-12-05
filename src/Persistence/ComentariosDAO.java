@@ -131,7 +131,7 @@ public final class ComentariosDAO extends DAO {
         }
         if (comentarios.getId_casa() == null || comentarios.getId_casa() < 1) {
             valueNull = true;
-            System.out.println("id_casa 'value' connor be null ");
+            System.out.println("id_casa 'value' cannot be null ");
         }
         //Warning this is different
         if (comentarios.getId_comentario() != null){
@@ -158,7 +158,7 @@ public final class ComentariosDAO extends DAO {
         }
         //Warning this is different
         if (comentarios.getId_comentario() == null || comentarios.getId_comentario() <1){
-            System.out.println("id_commentario 'value' comment cannot be null");
+            System.out.println("id_commentario 'value' cannot be null");
         }
         return valueNull;
 

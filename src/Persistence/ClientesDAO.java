@@ -140,38 +140,38 @@ public final class ClientesDAO extends DAO{
 
         if (cliente.getNombre() == null || cliente.getNombre().trim().isEmpty()){
             valueNull = true;
-            System.out.println("nombre 'value' must be null");
+            System.out.println("nombre 'value' cannot be null");
         }
 
         if (cliente.getCalle() == null || cliente.getCalle().trim().isEmpty()){
             valueNull = true;
-            System.out.println("calle 'value' must be null");
+            System.out.println("calle 'value' cannot be null");
         }
 
         if (cliente.getNumero() == null || cliente.getNumero() < 1){
             valueNull = true;
-            System.out.println("numero 'value' must be null");
+            System.out.println("numero 'value' cannot be null");
         }
 
         if (cliente.getCodigo_postal() == null || cliente.getCodigo_postal().trim().isEmpty()){
             valueNull = true;
-            System.out.println("codigo_postal 'value' must be null");
+            System.out.println("codigo_postal 'value' cannot be null");
         }
 
         if (cliente.getCiudad() == null || cliente.getCiudad().trim().isEmpty()){
             valueNull = true;
-            System.out.println("ciudad 'value' must be null");
+            System.out.println("ciudad 'value' cannot be null");
         }
 
         if (cliente.getPais() == null || cliente.getPais().trim().isEmpty()){
             valueNull = true;
-            System.out.println("pais 'value' must be null");
+            System.out.println("pais 'value' cannot be null");
         }
 
         // Checks for Email
         if (cliente.getEmail() == null || cliente.getEmail().trim().isEmpty()){
             valueNull = true;
-            System.out.println("Email 'value' must be null");
+            System.out.println("Email 'value' cannot be null");
         }
         if (!cliente.getEmail().contains("@")){
             valueNull = true;
@@ -205,38 +205,38 @@ public final class ClientesDAO extends DAO{
 
         if (cliente.getNombre() == null || cliente.getNombre().trim().isEmpty()){
             valueNull = true;
-            System.out.println("nombre 'value' must be null");
+            System.out.println("nombre 'value' cannot be null");
         }
 
         if (cliente.getCalle() == null || cliente.getCalle().trim().isEmpty()){
             valueNull = true;
-            System.out.println("calle 'value' must be null");
+            System.out.println("calle 'value' cannot be null");
         }
 
         if (cliente.getNumero() == null || cliente.getNumero() < 1){
             valueNull = true;
-            System.out.println("numero 'value' must be null");
+            System.out.println("numero 'value' cannot be null");
         }
 
         if (cliente.getCodigo_postal() == null || cliente.getCodigo_postal().trim().isEmpty()){
             valueNull = true;
-            System.out.println("codigo_postal 'value' must be null");
+            System.out.println("codigo_postal 'value' cannot be null");
         }
 
         if (cliente.getCiudad() == null || cliente.getCiudad().trim().isEmpty()){
             valueNull = true;
-            System.out.println("ciudad 'value' must be null");
+            System.out.println("ciudad 'value' cannot be null");
         }
 
         if (cliente.getPais() == null || cliente.getPais().trim().isEmpty()){
             valueNull = true;
-            System.out.println("pais 'value' must be null");
+            System.out.println("pais 'value' cannot be null");
         }
 
         // Checks for Email
         if (cliente.getEmail() == null || cliente.getEmail().trim().isEmpty()){
             valueNull = true;
-            System.out.println("Email 'value' must be null");
+            System.out.println("Email 'value' cannot be null");
         }
         if (!cliente.getEmail().contains("@")){
             valueNull = true;

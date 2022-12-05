@@ -4,9 +4,9 @@ import java.util.Date;
 
 public class Estancias {
 
-    private int id_estancia;
-    private int id_cliente;
-    private int id_casa;
+    private Integer id_estancia;
+    private Integer id_cliente;
+    private Integer id_casa;
     private String nombre_huesped;
     private Date fecha_desde;
     private Date fecha_hasta;
@@ -14,7 +14,7 @@ public class Estancias {
     public Estancias() {
     }
 
-    public int getId_estancia() {
+    public Integer getId_estancia() {
         return id_estancia;
     }
 
@@ -22,7 +22,7 @@ public class Estancias {
         this.id_estancia = id_estancia;
     }
 
-    public int getId_cliente() {
+    public Integer getId_cliente() {
         return id_cliente;
     }
 
@@ -30,7 +30,7 @@ public class Estancias {
         this.id_cliente = id_cliente;
     }
 
-    public int getId_casa() {
+    public Integer getId_casa() {
         return id_casa;
     }
 

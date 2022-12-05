@@ -68,7 +68,7 @@ public final class CasasDAO extends DAO{
             throw new Exception("cannot delete casa - casa is null ");
 
             }
-            String sqlQuery = "DELETE FROM casas where id_casa = " +casa.getId_casa()+"";
+            String sqlQuery = "DELETE FROM casas WHERE id_casa = " +casa.getId_casa()+"";
             insertDeleteUpdate(sqlQuery);
         }catch (Exception e){
             System.out.println("cannot delete casa");
@@ -153,12 +153,12 @@ public final class CasasDAO extends DAO{
 
         if (casa.getCalle() == null  || casa.getCalle().trim().isEmpty()){
             valueNull = true;
-            System.out.println("calle 'value' must be null");
+            System.out.println("calle 'value' cannot be null");
         }
 
         if (casa.getNumero() == null || casa.getNumero() < 1){
             valueNull = true;
-            System.out.println("numero 'value' must be null");
+            System.out.println("numero 'value' cannot be null");
         }
 
         if (casa.getCodigo_postal() == null || casa.getCodigo_postal().trim().isEmpty()){
@@ -224,12 +224,12 @@ public final class CasasDAO extends DAO{
 
         if (casa.getCalle() == null  || casa.getCalle().trim().isEmpty()){
             valueNull = true;
-            System.out.println("calle 'value' must be null");
+            System.out.println("calle 'value' cannot be null");
         }
 
         if (casa.getNumero() == null || casa.getNumero() < 1){
             valueNull = true;
-            System.out.println("numero 'value' must be null");
+            System.out.println("numero 'value' cannot be null");
         }
 
         if (casa.getCodigo_postal() == null || casa.getCodigo_postal().trim().isEmpty()){

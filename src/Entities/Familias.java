@@ -2,18 +2,18 @@ package Entities;
 
 public class Familias {
 
-    private int id_familia;
+    private Integer id_familia;
     private String nombre;
-    private int edad_minima;
-    private int edad_maxima;
-    private int num_hijos;
+    private Integer edad_minima;
+    private Integer edad_maxima;
+    private Integer num_hijos;
     private String email;
-    private int id_casa_familia;
+    private Integer id_casa_familia;
 
     public Familias() {
     }
 
-    public int getId_familia() {
+    public Integer getId_familia() {
         return id_familia;
     }
 
@@ -29,7 +29,7 @@ public class Familias {
         this.nombre = nombre;
     }
 
-    public int getEdad_minima() {
+    public Integer getEdad_minima() {
         return edad_minima;
     }
 
@@ -37,7 +37,7 @@ public class Familias {
         this.edad_minima = edad_minima;
     }
 
-    public int getEdad_maxima() {
+    public Integer getEdad_maxima() {
         return edad_maxima;
     }
 
@@ -45,7 +45,7 @@ public class Familias {
         this.edad_maxima = edad_maxima;
     }
 
-    public int getNum_hijos() {
+    public Integer getNum_hijos() {
         return num_hijos;
     }
 
@@ -61,7 +61,7 @@ public class Familias {
         this.email = email;
     }
 
-    public int getId_casa_familia() {
+    public Integer getId_casa_familia() {
         return id_casa_familia;
     }
 
