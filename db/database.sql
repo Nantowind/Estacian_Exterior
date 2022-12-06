@@ -3,15 +3,15 @@ CREATE DATABASE IF NOT EXISTS estancias_exterior;
 USE estancias_exterior;
 
 CREATE TABLE clientes (
-  id_cliente INT UNSIGNED AUTO_INCREMENT NOT NULL,
-  nombre VARCHAR(50) NOT NULL,
-  calle VARCHAR(50) DEFAULT NULL,
-  numero INT NOT NULL,
-  codigo_postal VARCHAR(10) DEFAULT NULL,
-  ciudad VARCHAR(50) NOT NULL,
-  pais VARCHAR(50) NOT NULL,
-  email VARCHAR(50) DEFAULT NULL,
-  PRIMARY KEY (id_cliente)
+                          id_cliente INT UNSIGNED AUTO_INCREMENT NOT NULL,
+                          nombre VARCHAR(50) NOT NULL,
+                          calle VARCHAR(50) DEFAULT NULL,
+                          numero INT NOT NULL,
+                          codigo_postal VARCHAR(10) DEFAULT NULL,
+                          ciudad VARCHAR(50) NOT NULL,
+                          pais VARCHAR(50) NOT NULL,
+                          email VARCHAR(50) DEFAULT NULL,
+                          PRIMARY KEY (id_cliente)
 )ENGINE=INNODB;
 
 INSERT INTO clientes VALUES(1, 'Juan Gutierrez','Moliner',50,'46100','Valencia','España','Juan.Gutierrez@uv.es');
@@ -22,21 +22,21 @@ INSERT INTO clientes VALUES(5, 'Juan Gonzalez','Cuenca',50,'45320','Barcelona','
 INSERT INTO clientes VALUES(6, 'Juan Jose Lopez','Galdos',9,'26040','Almansa','España','julo@retevision.com');
 INSERT INTO clientes VALUES(7, 'Rosario Alcocer','Rambla de la Mancha',10,'26100','Albacete','España','Roal@upv.es');
 
- 
+
 CREATE TABLE casas (
-  id_casa INT UNSIGNED AUTO_INCREMENT NOT NULL,
-  calle VARCHAR(50) DEFAULT NULL,
-  numero INT NOT NULL,
-  codigo_postal VARCHAR(10) DEFAULT NULL,
-  ciudad VARCHAR(50) NOT NULL,
-  pais VARCHAR(50) NOT NULL,
-  fecha_desde date NOT NULL,
-  fecha_hasta date NOT NULL,
-  tiempo_minimo INT NOT NULL,
-  tiempo_maximo INT NOT NULL,
-  precio_habitacion NUMERIC(15,2) NOT NULL,
-  tipo_vivienda VARCHAR(30) NOT NULL,
-  PRIMARY KEY (id_casa)
+                       id_casa INT UNSIGNED AUTO_INCREMENT NOT NULL,
+                       calle VARCHAR(50) DEFAULT NULL,
+                       numero INT NOT NULL,
+                       codigo_postal VARCHAR(10) DEFAULT NULL,
+                       ciudad VARCHAR(50) NOT NULL,
+                       pais VARCHAR(50) NOT NULL,
+                       fecha_desde date NOT NULL,
+                       fecha_hasta date NOT NULL,
+                       tiempo_minimo INT NOT NULL,
+                       tiempo_maximo INT NOT NULL,
+                       precio_habitacion NUMERIC(15,2) NOT NULL,
+                       tipo_vivienda VARCHAR(30) NOT NULL,
+                       PRIMARY KEY (id_casa)
 )ENGINE=INNODB;
 
 INSERT INTO casas VALUES(1, 'Cow Gate',3,'456789','Edinmburg','Reino Unido','2020-06-01','2021-06-01',2,20,50,'Casa');
@@ -49,15 +49,15 @@ INSERT INTO casas VALUES(7, 'Londo',10,'345','Dublin','Irlanda','2020-06-01','20
 INSERT INTO casas VALUES(8, 'Tulipanes',6,'89889','Amsterdan','Holanda','2020-08-01','2020-08-31',2,30,75,'Chalet');
 
 CREATE TABLE familias (
-  id_familia INT UNSIGNED AUTO_INCREMENT NOT NULL,
-  nombre VARCHAR(50) NOT NULL,
-  edad_minima INT NOT NULL,
-  edad_maxima INT NOT NULL,
-  num_hijos INT NOT NULL,
-  email VARCHAR(50) NOT NULL,
-  id_casa_familia INT UNSIGNED NOT NULL,
-  PRIMARY KEY (id_familia),
-  FOREIGN KEY (id_casa_familia) REFERENCES casas (id_casa)
+                          id_familia INT UNSIGNED AUTO_INCREMENT NOT NULL,
+                          nombre VARCHAR(50) NOT NULL,
+                          edad_minima INT NOT NULL,
+                          edad_maxima INT NOT NULL,
+                          num_hijos INT NOT NULL,
+                          email VARCHAR(50) NOT NULL,
+                          id_casa_familia INT UNSIGNED NOT NULL,
+                          PRIMARY KEY (id_familia),
+                          FOREIGN KEY (id_casa_familia) REFERENCES casas (id_casa)
 )ENGINE=INNODB;
 
 INSERT INTO familias VALUES(1, 'Marshal',3,8,3,'c.Marshall@idk.ij.uk',1);
@@ -70,15 +70,15 @@ INSERT INTO familias VALUES(7, 'Smith',1,7,3,'J.Smith@hotmail.com',7);
 INSERT INTO familias VALUES(8, 'Kennedy',2,8,2,'A.Ken@hotmail.com',8);
 
 CREATE TABLE estancias (
-  id_estancia  INT UNSIGNED AUTO_INCREMENT NOT NULL,
-  id_cliente INT UNSIGNED NOT NULL,
-  id_casa INT UNSIGNED NOT NULL,
-  nombre_huesped VARCHAR(70) NOT NULL,
-  fecha_desde date NOT NULL,
-  fecha_hasta date NOT NULL,
-  PRIMARY KEY (id_estancia),
-  FOREIGN KEY (id_cliente) REFERENCES clientes (id_cliente),
-  FOREIGN KEY (id_casa) REFERENCES casas (id_casa)
+                           id_estancia  INT UNSIGNED AUTO_INCREMENT NOT NULL,
+                           id_cliente INT UNSIGNED NOT NULL,
+                           id_casa INT UNSIGNED NOT NULL,
+                           nombre_huesped VARCHAR(70) NOT NULL,
+                           fecha_desde date NOT NULL,
+                           fecha_hasta date NOT NULL,
+                           PRIMARY KEY (id_estancia),
+                           FOREIGN KEY (id_cliente) REFERENCES clientes (id_cliente),
+                           FOREIGN KEY (id_casa) REFERENCES casas (id_casa)
 )ENGINE=INNODB;
 
 INSERT INTO estancias VALUES(1,1,1,'Juan Gutierrez','2020-07-01','2020-07-31');
@@ -91,11 +91,11 @@ INSERT INTO estancias VALUES(8,7,6,'Rosario Alcocer','2020-07-01','2020-08-31');
 
 
 CREATE TABLE comentarios (
-  id_comentario INT UNSIGNED AUTO_INCREMENT NOT NULL,
-  id_casa INT UNSIGNED NOT NULL,
-  comentario VARCHAR(255) DEFAULT NULL,
-  PRIMARY KEY (id_comentario),
-  FOREIGN KEY (id_casa) REFERENCES casas (id_casa)
+                             id_comentario INT UNSIGNED AUTO_INCREMENT NOT NULL,
+                             id_casa INT UNSIGNED NOT NULL,
+                             comentario VARCHAR(255) DEFAULT NULL,
+                             PRIMARY KEY (id_comentario),
+                             FOREIGN KEY (id_casa) REFERENCES casas (id_casa)
 )ENGINE=INNODB;
 
 INSERT INTO comentarios VALUES(1,1,'Casa muy limpia, todo perfecto, quizás un poco pequeña');

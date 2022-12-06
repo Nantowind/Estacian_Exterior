@@ -18,9 +18,9 @@ public class CasasServices {
         Scanner sc = new Scanner(System.in);
         try {
             System.out.println("insert fecha_desde");
-            Date dateMin =makeFecha_desde();
+            Date dateMin =makeFecha_desde(sc);
             System.out.println("insert fecha_hasta");
-            Date dateMax =makeFecha_hasta();
+            Date dateMax =makeFecha_hasta(sc);
             System.out.print("Insert pais");
             String pais= String.valueOf(sc.nextLine());
 
@@ -128,9 +128,9 @@ public class CasasServices {
 
 
     }
+
     //method needs
-    private Date makeFecha_desde()throws Exception{
-        Scanner sc = new Scanner(System.in);
+    private Date makeFecha_desde(Scanner sc)throws Exception{
         int day;
         int month;
         int year;
@@ -138,7 +138,7 @@ public class CasasServices {
         do {
             System.out.print("day: ");
             day = Integer.valueOf(sc.nextLine());
-        }while (day < 1 || day >33 );
+        } while (day < 1 || day >33 );
 
         do {
             System.out.print("month: ");
@@ -153,8 +153,7 @@ public class CasasServices {
         System.out.println("");
         return dateMin;
     }
-    private Date makeFecha_hasta()throws Exception{
-        Scanner sc = new Scanner(System.in);
+    private Date makeFecha_hasta(Scanner sc)throws Exception{
         int day;
         int month;
         int year;
