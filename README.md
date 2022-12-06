@@ -31,3 +31,14 @@ actualizados.
 que están ‘limpias’.
 
 Teniendo en cuenta estos ejercicios a realizar, me tome la libertad de hacerlos más genéricos y que el usuario pueda insertar datos acordes a la necesidad, pero respetando el objetivo de cada ejercicio.
+
+## Imagenes
+
+![Imagen](./docs/image-1.png)
+
+Presionar la opci&oacute;n 1.
+```(shell)
+1
+```
+
+El resultado a mostrar debe ser similar al siguiente
